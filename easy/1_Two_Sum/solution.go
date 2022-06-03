@@ -1,4 +1,15 @@
 // https://leetcode.com/problems/two-sum/
+
+/*
+Explanation:
+
+Create hash-map lookup table where [target - current]{index}
+Iterate over array of numbers, check if current number exists
+in lookup table:
+	1. If yes -> we found solution
+	2. If no -> add current number to the table
+*/
+
 package main
 
 import "fmt"

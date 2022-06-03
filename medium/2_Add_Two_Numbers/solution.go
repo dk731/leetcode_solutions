@@ -1,4 +1,16 @@
 // https://leetcode.com/problems/add-two-numbers/
+
+/*
+Explanation:
+
+1. Copy l1, l2 values to local variables
+2. Create result head and point local pointer to it
+3. Iterate while at least one of the input pointer is not nil:
+	1. Create new list node and move current point to it
+	2. Determine and set new value to the current node
+4. !!! In the end check overflow, if not null -> create new node !!!
+*/
+
 package main
 
 import "fmt"

@@ -1,4 +1,18 @@
 // https://leetcode.com/problems/longest-substring-without-repeating-characters/
+
+/*
+Explanation:
+
+Use slightly modified version of sliding window.
+Whenever it is possible, expand window by adding new
+values from the right side. If not possible, shrink
+window by incrementing starting possition (remove from the left).
+
+!!! On each window expansion, register maximum value for result !!!
+
+For better performance use array of int, with length 255 -> ASCII lookup
+*/
+
 package main
 
 import "fmt"
