@@ -1,9 +1,10 @@
-// https://leetcode.com/problems/reverse-integer/
+// https://leetcode.com/problems/string-to-integer-atoi/
 
 /*
 Explanation:
 
-Boring task with small additional range check, almost same as https://leetcode.com/problems/reverse-integer/
+Boring task with small additional range check, almost same
+as https://leetcode.com/problems/reverse-integer/
 
 !!! No intresting notes !!!
 */
@@ -41,7 +42,7 @@ func myAtoi(s string) int {
 		tmpVal := int(s[charCount] - '0')
 
 		// Check overflow
-		if resVal > 214748364-tmpVal {
+		if resVal > 214748364 {
 			if isNegative > 0 {
 				return -2147483648
 			} else {
