@@ -10,23 +10,14 @@ digits). This solution is taking approach very simillar to the
 5. longest palindromic substring, by comparing extracting numbers
 one by one and comparing them
 
-!!! If better approach for 10'th power calculation could be found !!!
-!!! in come cases this solution would be better that soring whole !!!
-!!! number                                                        !!!
+!!! Use precalculated tenth table !!!
 */
 
 package main
 
 import "fmt"
 
-func tenthPow(x int) int {
-	resVal := 1
-	for i := 0; i < x; i++ {
-		resVal *= 10
-	}
-
-	return resVal
-}
+var tenthPow [16]int = [16]int{1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000, 100000000000, 1000000000000, 10000000000000, 100000000000000}
 
 func isPalindrome(x int) bool {
 	// Exclude nagative numbers from the very beggining
@@ -36,7 +27,7 @@ func isPalindrome(x int) bool {
 
 	digitsCount := 1
 
-	for x/tenthPow(digitsCount) >= 1 {
+	for x/tenthPow[digitsCount] >= 1 {
 		digitsCount++
 	}
 
@@ -44,11 +35,7 @@ func isPalindrome(x int) bool {
 	lp := 0
 
 	for lp < rp {
-		rpRes := tenthPow(rp)
-		lpRes := tenthPow(lp)
-
-		// fmt.Printf("Res: %d->%d   %d->%d\n", (x/rpRes)%10, rpRes, (x%lpRes*10)/(lpRes), lpRes)
-		if (x/rpRes)%10 != (x/lpRes)%10 {
+		if (x/tenthPow[lp])%10 != (x/tenthPow[rp])%10 {
 			return false
 		}
 
