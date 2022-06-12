@@ -3,11 +3,15 @@
 /*
 Explanation:
 
-Two pointers approach, start from outer side of an array.
-On each step calculate and update max area, then move that pointer
-which is limiting current area (that which is smaller)
+Solution for this problem is not that easy as it seems from
+the first glance. We ahve to think about how this triplents
+are made, this will guide us to the idea of sorting array and
+using negative numbers as starting point. Then solution is pretty
+basic using 2 pointers.
 
-!!! No need to overthink, solution is much simpler than it seems to be !!!
+!!! Dont be shy to somethims use heave sorting, as in some cases !!!
+!!! it can be more efficent then think of very complex algorithm !!!
+!!! logic...                                                     !!!
 */
 
 package main
@@ -41,14 +45,14 @@ func threeSum(nums []int) [][]int {
 				resArr = append(resArr, []int{negNum, nums[lp], nums[rp]})
 
 				lp++
-				for nums[lp] == nums[lp-1] && lp < numsLen {
+				for nums[lp] == nums[lp-1] && lp < rp {
 					lp++
 				}
 			}
 		}
 
 		negInd++
-		if negInd < numsLen && negInd > 0 && nums[negInd] == nums[negInd-1] {
+		for negInd < numsLen && nums[negInd] == nums[negInd-1] {
 			negInd++
 		}
 	}
